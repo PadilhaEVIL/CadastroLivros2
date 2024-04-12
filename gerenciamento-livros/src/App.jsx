@@ -64,6 +64,13 @@ function App() {
     try {
       await axios.put(`http://localhost:8090/livros/${id}`, livroAtualizado);
       fetchLivros();
+      setNovoLivro({
+        isbn: '',
+        titulo: '',
+        editora: '',
+        autor: '',
+        genero: '',
+      });
     } catch (error) {
       console.error('Erro ao atualizar livro:', error);
     }
@@ -81,7 +88,7 @@ function App() {
           type="text"
           name="isbn"
           placeholder="Isbn"
-          value={novoLivro.livro}
+          value={novoLivro.isbn}
           onChange={handleInputChange}
         />
         {/* Campo para o titulo */}
@@ -136,11 +143,11 @@ function App() {
               onClick={() =>
                 handleUpdate(livro.id, {
                   ...livro,
-                  isbn: novoLivro.isbn, // Exemplo de atualização
-                  titulo: novoLivro.titulo,
-                  editora: novoLivro.editora,
-                  autor: novoLivro.autor,
-                  genero: novoLivro.genero,
+                  isbn: novoLivro.isbn !== "" ? novoLivro.isbn : livro.isbn,
+                  titulo: novoLivro.titulo !== "" ? novoLivro.titulo : livro.titulo,
+                  editora: novoLivro.editora !== "" ? novoLivro.editora : livro.editora,
+                  autor: novoLivro.autor !== "" ? novoLivro.autor : livro.autor,
+                  genero: novoLivro.genero !== "" ? novoLivro.genero : livro.genero,
 
                 })
               }

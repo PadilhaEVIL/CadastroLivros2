@@ -4,7 +4,9 @@
   padding: 4rem;
   text-align: center;
 }
-
+button{
+  margin: 0 10px;
+}
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -42,8 +44,12 @@
 }
 
 body{
-  background-color: black;
+  background-color: rgb(51, 49, 49);
   color: white;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  
 }
 
 input{
